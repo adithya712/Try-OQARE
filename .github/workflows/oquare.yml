@@ -1,0 +1,30 @@
+name: OQuaRE Evaluation
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Run OQuaRE metrics
+        uses: tecnomod-um/oquare-metrics@v3.0
+        with:
+          ontology-folders: ontologies
+          reasoner: ELK

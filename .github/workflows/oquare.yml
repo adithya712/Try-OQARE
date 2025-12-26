@@ -26,5 +26,5 @@ jobs:
       - name: Run OQuaRE metrics
         uses: tecnomod-um/oquare-metrics@v3.0
         with:
-          ontology-folders: ontologies
+          ontology-folders: Ontology_files
           reasoner: ELK
